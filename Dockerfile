@@ -2,7 +2,7 @@ FROM golang:latest
 
 COPY . /src
 
-RUN cd /src && CGO_ENABLED=0 GOOS=linux go build -o /dogstatsd-local -a .
+RUN cd /src && go mod init main && CGO_ENABLED=0 GOOS=linux go build -o /dogstatsd-local -a .
 
 FROM scratch
 
